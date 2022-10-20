@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="controls">
+    <button id="add">add</button>
+    <button id="remove">remove</button>
+    <button id="toggle">toggle</button>
+    <button id="check">check</button>
+    <button id="addAll">add all</button>
+    <button id="removeAll">remove all</button>
+</div>
+<div class="hello">
+    hello JS
+</div>
+
+
+<script>
+const hello = document.querySelector(".hello");
+const add = document.querySelector("#add");
+const remove = document.querySelector("#remove");
+const toggle = document.querySelector("#toggle");
+const check = document.querySelector("#check");
+const addAll = document.querySelector("#addAll");
+const removeAll = document.querySelector("#removeAll");
+
+add.addEventListener("click", () => {
+    hello.classList.add("bg");
+});
+
+remove.addEventListener("click", () => {
+    hello.classList.remove("bg");
+});
+
+toggle.addEventListener("click", () => {
+    hello.classList.toggle("bg");
+});
+
+check.addEventListener("click", () => {
+    hello.innerText = hello.classList.contains("bg");
+    //contains return true or false only
+});
+
+addAll.addEventListener("click", () => {
+    hello.classList.add("bg", "bd");
+});
+
+removeAll.addEventListener("click", () => {
+    hello.classList.remove("bg" , "bd");
+});
+
+</script>
+<style>
+.controls{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.hello{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border:2px solid #ccc;
+}    
+.bg{
+    background: #f00;
+    color: #fff;
+}
+.bd{
+    border:5px solid #ff0;
+}
+</style>    
+</body>
+</html>
+                                                                                                                                                                                                       

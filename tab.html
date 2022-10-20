@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div class="tab-container">
+    <div class="tab-bar">
+        <button class="tab-btn tab-active" data-for-tab="1">item 1</button>
+        <button class="tab-btn" data-for-tab="2">item 2</button>
+        <button class="tab-btn" data-for-tab="3">item 3</button>
+        <button class="tab-btn" data-for-tab="4">item 4</button>
+    </div>
+     <div class="tab-content tab-content-active" data-tab="1">
+        <h1>content 1</h1>
+        <p>Its Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut molestias, dicta repellat nam ea, repudiandae error quam minima adipisci est, sit dolorum sunt facere minus tempora. Consectetur assumenda magni perspiciatis</p>
+     </div>
+    <div class="tab-content" data-tab="2">
+        <h1>content 2</h1>
+        <p>Its Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut molestias, dicta repellat nam ea, repudiandae error quam minima adipisci est, sit dolorum sunt facere minus tempora. Consectetur assumenda magni perspiciatis</p>
+    </div>
+    <div class="tab-content" data-tab="3">
+        <h1>content 3</h1>
+        <p>Its Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut molestias, dicta repellat nam ea, repudiandae error quam minima adipisci est, sit dolorum sunt facere minus tempora. Consectetur assumenda magni perspiciatis</p>
+    </div>
+    <div class="tab-content" data-tab="4">
+        <h1>content 4</h1>
+        <p>Its Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut molestias, dicta repellat nam ea, repudiandae error quam minima adipisci est, sit dolorum sunt facere minus tempora. Consectetur assumenda magni perspiciatis</p>
+    </div>
+</div> 
+
+<script>
+function setupTabs(){
+    document.querySelectorAll(".tab-btn").forEach( x => {
+        console.log("first loop", x);      
+        x.addEventListener("click", () => {   
+            console.log("second loop", x);         
+            const tabBar = x.parentElement;
+            const tabsContainer = tabBar.parentElement;
+            const tabNumber = x.dataset.forTab;
+            const tabToActive = tabsContainer.querySelector(`.tab-content[data-tab="${tabNumber}"]`); 
+           
+           /* console.log(tabBar);
+            console.log(tabsContainer);
+            console.log(tabNumber);
+            console.log(tabToActive);*/
+
+            tabBar.querySelectorAll(".tab-btn").forEach(x => {                
+                x.classList.remove("tab-active");
+            });
+
+             tabsContainer.querySelectorAll(".tab-content").forEach(y => {
+                y.classList.remove("tab-content-active");
+            });
+
+            x.classList.add("tab-active");
+            tabToActive.classList.add("tab-content-active");
+
+        });
+    }); 
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+ setupTabs();
+});
+</script>
+
+<style>
+.tab-container{
+    width: 100%;
+}
+
+.tab-bar{
+    display: flex;
+}
+
+.tab-btn{
+    background:#9d9d9d;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px;
+    cursor: pointer;    
+}
+.tab-btn:not(:last-of-type){
+border-right: 2px solid #000;
+}
+
+.tab-active{
+    font-weight: bold;
+    background:#cecece;
+    color: #000;
+}
+
+.tab-content{
+    background:#cecece;
+    padding: 15px;
+    display: none;
+}
+
+.tab-content-active{
+    display: block ;
+}
+</style>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<div style="padding:50px;">
+    <div class="p-btns">
+        <button class="p-btn" data-btn-num="1">facebook</button>
+        <button class="p-btn" data-btn-num="2">youtube</button>
+        <button class="p-btn" data-btn-num="3">twitter</button>
+    </div>
+    <div class="container">
+        <div class="img-box p-btn--1">
+            facebook
+        </div>
+        <div class="img-box p-btn--2">
+            youtube
+        </div>
+        <div class="img-box p-btn--3">
+            twitter
+        </div>
+        <div class="img-box p-btn--1">
+            facebook
+        </div>
+        <div class="img-box p-btn--2">
+            youtube
+        </div>
+        <div class="img-box p-btn--3">
+            twitter
+        </div>
+         <div class="img-box p-btn--1">
+            facebook
+        </div>
+        <div class="img-box p-btn--2">
+            youtube
+        </div>
+        <div class="img-box p-btn--3">
+            twitter
+        </div>
+        <div class="img-box p-btn--1">
+            facebook
+        </div>
+        <div class="img-box p-btn--2">
+            youtube
+        </div>
+        <div class="img-box p-btn--3">
+            twitter
+        </div>
+    </div>
+</div>
+
+<script>
+const p_btns = document.querySelector(".p-btns");
+const p_btn = document.querySelectorAll(".p-btn");
+const p_img_box = document.querySelectorAll(".img-box");
+
+p_btns.addEventListener("click", (e)=> {
+    const p_btn_clicked = e.target;
+    console.log(p_btn_clicked);
+
+    p_btn.forEach((curElem)=>{
+        curElem.classList.remove("p-btn-active");
+    });
+
+   p_btn_clicked.classList.add("p-btn-active");
+
+   //to find the number in data attr
+   const btn_num = p_btn_clicked.dataset.btnNum;
+   console.log(btn_num);
+
+   const img_active = document.querySelectorAll(`.p-btn--${btn_num}`);
+
+    p_img_box.forEach((curElem)=>{
+        curElem.classList.add("img-box-not-active");
+    });
+
+   img_active.forEach((curElem)=>{
+    curElem.classList.remove("img-box-not-active");
+   });
+});
+</script>
+
+<style>
+.p-btns{
+    display: flex;
+    gap: 10px;
+}
+
+.p-btn-active{
+    background: #777;
+    color: #fff;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    padding: 10px 0;
+}
+.img-box {
+    border: 2px solid #ddd;
+    background: #ddd;
+    padding: 10px;
+}
+.img-box-not-active{
+    display: none !important;
+}
+
+</style>
+
+
+</body>
+</html>
+
+

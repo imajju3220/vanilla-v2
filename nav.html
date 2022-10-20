@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>The button Element</h1>
+<div class="links">
+    <button type="button">nav</button>
+    <button type="button">nav</button>
+    <button type="button">nav</button>
+    <button type="button">nav</button>
+</div>
+
+<style>
+button{font-size: 20px;}    
+.active{color:red; font-weight: bold; text-decoration: underline;}
+</style>
+
+<script>
+/*option 1*/
+/*
+var links = document.querySelectorAll(".links button");
+links.forEach(button => {
+    button.addEventListener("click", () => {
+        resetLinks();
+        button.classList.add("active");
+    });
+});
+
+function resetLinks(){
+    links.forEach(button => {
+        button.classList.remove("active");
+    });
+}
+*/
+
+/*option 2*/
+var links = document.querySelectorAll(".links button");
+links.forEach(button => {    
+    button.addEventListener("click", () => {        
+       links.forEach(button => {
+            button.classList.remove("active");
+        });
+        button.classList.add("active");
+    });
+});
+
+
+
+</script>
+
+</body>
+</html>
