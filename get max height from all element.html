@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <style>
+        .wrapper {
+            width: 1000px;
+        }
+
+        .wrapper>div {
+            width: 20%;
+            box-sizing: border-box;
+            display: inline-flex;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="wrapper1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        </div>
+        <div class="wrapper1">industry's standard dummy text ever since the industry's standard dummy text
+            ever since
+            the 1500s, when an
+            unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not
+            only five centuries</div>
+        <div class="wrapper1">fact that a reader will be distracted by the readable content of a page when
+            looking at
+            its layout. The
+            point of using Lorem </div>
+        <div class="wrapper1">opposed to using 'Content here, content here', making it look like readable
+            English. Many
+            desktop
+            publishing packages and web page editors now use Lorem Ipsum as their default model text, and</div>
+    </div>
+    <!-- <script>
+        function oloHeight() {
+            var maxHeight = 0;
+            $(".wrapper > div").each(function () {
+                if ($(this).height() > maxHeight) {
+                    maxHeight = $(this).height();
+                }
+            });
+            $(".wrapper > div").height(maxHeight);
+        }
+        $(document).ready(function () {
+            oloHeight();
+        });
+    </script> -->
+
+    <script>
+        function oloHeight() {
+            debugger;
+            var maxHeight = 0;
+            var container = document.querySelectorAll(".wrapper1");
+
+            for (var i = 0; i < container.length; i++) {
+                debugger;
+                var dd = container[i].clientHeight;
+                if (container[i].clientHeight > maxHeight) {
+                    debugger;
+                    maxHeight = container[i].clientHeight;
+                }
+            }
+            for (var i = 0; i < container.length; i++) {
+                debugger;
+                document.getElementsByClassName("wrapper1")[i].style.height = maxHeight + "px";
+
+            }
+
+        }
+        document.addEventListener("DOMContentLoaded", () => {
+            oloHeight();
+        });
+    </script>
+
+</body>
+
+
+</html>
